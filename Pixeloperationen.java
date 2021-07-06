@@ -5,16 +5,8 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class pixeloperation
-{
-    // Instanzvariablen - ersetzen/**
- * Algorithmen zur Änderung der Pixelpositionen eines Pictures
- * z.B. drehen, spiegeln usw.
- *
- * @author S. Gebert
- * @version 06.2021
- */
-public class GeometrischeBildoperationen  implements Bildoperation
+
+public class Pixeloperationen  implements Bildoperation
 {
     private int opCount=5; //number of operations available
     // IDs der geometrischen Operationen
@@ -43,8 +35,7 @@ public class GeometrischeBildoperationen  implements Bildoperation
         // Pro geometrische Operation wird hier eine Zeile benötigt, die die entprechende Operation ausführt.
         switch( this.op ){
             case OP_SpiegelHorizontal: return spiegelHorizontal(originalBild);
-            case OP_SpiegelVertikal: return spiegelVertikal(originalBild);
-            case OP_DreheLinks: return dreheLinks(originalBild);
+
             case OP_DreheRechts:
             case OP_Drehe180:
             case OP_Nil:
@@ -91,58 +82,5 @@ public class GeometrischeBildoperationen  implements Bildoperation
         return neuesBild;
     }
 
-    /** 
-     * Spiegelt das Bild, so dass oben und unten getauscht werden
-     * @param originalBild Ein Bild (Picture), das gespiegelt werden soll
-     * @return Eine gespiegelte Kopie des Bildes
-     */
-    public Picture spiegelVertikal(Picture originalBild) {
-        int breite = originalBild.getWidth();
-        int hoehe  = originalBild.getHeight();
 
-        int[][] pixel = originalBild.getPixelsTable();
-        int[][] pixelNeu = new int[breite][hoehe];
-
-        for(int x=0; x < breite; x++) {
-            for(int y=0;y < hoehe; y++) {
-                pixelNeu[x][y] = pixel[x][(hoehe-1)-y]; //@TODO: Passe diese Zeile so an, dass Vertikal gespiegelt wird.
-            }
-        }
-        Picture neuesBild = originalBild.copy();
-        neuesBild.setPixelsArray(pixelNeu); 
-        return neuesBild;
-    }
-
-    /**
-     * Dreht ein Bild um 90 Grad gegen den Uhrzeigersinn
-     *
-     * @param originalBild Ein Bild (Picture), das gedreht werden soll
-     * @return Eine um 90 Grad gegen den Uhrzeigersinn gedrehte Kopie des Bildes
-     */
-
-    public Picture dreheLinks( Picture originalBild) {
-        int breiteAlt = originalBild.getWidth();
-        int hoeheAlt = original Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
-
-    /**
-     * Konstruktor für Objekte der Klasse pixeloperation
-     */
-    public pixeloperation()
-    {
-        // Instanzvariable initialisieren
-        x = 0;
-    }
-
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
-    {
-        // tragen Sie hier den Code ein
-        return x + y;
-    }
 }
